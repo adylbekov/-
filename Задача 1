@@ -1,0 +1,59 @@
+
+function changingForm(nounOne, nounTwo, nounThree){
+	
+
+	//берем последние буквы слов
+	var charTwo = nounTwo.substr(nounTwo.length - 1);
+	var charOne = nounOne.substr(nounOne.length -2);
+	var charThree = nounThree.substr(nounThree.length -2);
+	
+	//проверяем последние буквы страны
+	if(charThree != "ия"){
+			nounThree = nounThree.concat("а");
+		} else {
+		nounThree = nounThree.substring(0, nounThree.length-2);
+		nounThree = nounThree.concat("ии");
+		}
+
+		//проверяем род прилагательного и ставим в родительный падеж
+	if(charOne == "ая" || charOne == "яя"){
+		nounOne = nounOne.substring(0, nounOne.length-2);
+		nounOne = nounOne.concat("ой");
+		nounTwo = nounTwo.substring(0, nounTwo.length-1);
+		nounTwo = nounTwo.concat("ы");
+		
+	} 
+	else if((charOne == "ый" || charOne == "ой" || charOne == "ий")){
+		nounOne = nounOne.substring(0, nounOne.length-2);
+		nounOne = nounOne.concat("ого");
+		nounTwo = nounTwo.concat("а");
+	}
+
+	else if((charOne == "ое" || charOne == "ее")){
+		nounOne = nounOne.substring(0, nounOne.length-2);
+		nounOne = nounOne.concat("ого");
+		nounTwo = nounTwo.substring(0, nounTwo.length-1);
+		nounTwo = nounTwo.concat("я");
+	}
+
+		else if((charOne == "ое" || charOne == "ее")){
+		nounOne = nounOne.substring(0, nounOne.length-2);
+		nounOne = nounOne.concat("ого");
+		nounTwo = nounTwo.substring(0, nounTwo.length-1);
+		nounTwo = nounTwo.concat("я");
+	}
+
+		
+		return "База производителей " + nounOne + " " + nounTwo + " из " + nounThree;
+
+
+
+}
+
+var first = prompt("Введите категорию: ");
+var second = prompt("Введите страну: ");
+var firstNoun = first.split(" ");
+
+
+
+console.log(changingForm(firstNoun[0], firstNoun[1], second));
