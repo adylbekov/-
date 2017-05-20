@@ -1,0 +1,32 @@
+var count = 0;
+function turnVertical(sides){
+
+	
+	for(var j = 0; j<sides.length;j++){
+		var zero = sides[j][0];
+		var one = sides[j][1];
+		var two = sides[j][2];
+		var three = sides[j][3];
+		var four = sides[j][4];
+		var five = sides[j][5];
+		sides[j][1] = five;
+		sides[j][3] = four;
+		sides[j][4] = one;
+		sides[j][5] = three;
+
+		var i = 0;
+		
+		if(sides[j] == sides[++i]){
+			count+=3;
+		}
+
+	}
+
+
+	return count;
+}
+	
+
+
+var sidesCube = [[2,4,5,3,1,6],[4,5,2,6,1,3],[2,6,5,1,4,3],[1,3,2,4,6,5]];
+console.log(turnVertical(sidesCube));
